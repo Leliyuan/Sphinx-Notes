@@ -7,8 +7,11 @@ Key Functionalities:
 ====================
 
 * **Kite Dynamics Control**: The system autonomously controls the kite's flight path to optimize energy capture based on wind conditions.
+
 * **Energy Conversion**: Converts the kinetic energy from the kite's motion into electrical energy.
+
 * **Adaptive Flight Path**: The flight path of the kite adapts to changing wind speeds and directions, ensuring consistent power generation.
+
 * **Power Stabilization**: The system maintains a stable power output by adjusting the kite's position relative to the wind.
 
 Kite Dynamics Control
@@ -43,3 +46,4 @@ AWES System Diagram
 .. image:: images/awes_system_diagram.jpg
    :width: 600px
    :align: center
+   

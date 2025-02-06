@@ -46,4 +46,3 @@ AWES System Diagram
 .. image:: images/awes_system_diagram.jpg
    :width: 600px
    :align: center
-   

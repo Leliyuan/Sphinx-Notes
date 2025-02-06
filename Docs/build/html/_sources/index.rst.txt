@@ -13,6 +13,7 @@ Welcome to MegAWES documentation!
 
    readme
    modules
+   description
 
 Indices and tables
 ==================

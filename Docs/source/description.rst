@@ -43,6 +43,6 @@ Example of Kite Dynamics Control Algorithm:
 
 AWES System Diagram
 --------------------
-.. image:: images/awes_system_diagram.jpg
+.. image:: _static/awes_system_diagram.jpg
    :width: 600px
    :align: center

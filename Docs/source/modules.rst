@@ -13,6 +13,16 @@ Functions
 **********
 Pre-simulation
 ---------------
+Flightpaths
+^^^^^^^^^^^^
+These functions are called by the PathFollowingController.
+Not all required functions are shown here. Some functions are only documented inside simulink.
+
+.. automodule:: Src.Common.Flightpaths
+  :members:
+  :show-inheritance:
+  :undoc-members:
+
 .. automodule:: Src.Common
   :members:
   :show-inheritance:

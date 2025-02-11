@@ -3,12 +3,12 @@ Functions and Simulink models
 
 .. toctree::
    :maxdepth: 2
-   :caption: Function Modules
+   :caption: MATLAB Files
 
-   function_pre_simulation
-   function_post_simulation
-   function_flightpaths
-
+   Src/Common/Get_simulation_params
+   Src/Common/PreSim_startup
+   Src/Common/initAllSimParams_DE2019
+   Src/Common/initAllStructs
 Functions
 **********
 Pre-simulation

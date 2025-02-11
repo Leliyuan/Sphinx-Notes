@@ -31,7 +31,7 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %           - **simInit** - Simulation initialisation parameters
 %           - **T** - Tether dimensions and material properties
 %           - **winchParameter** - Winch dynamic parameters 
-%           - **params** - Flight/Winch controller parameters kk
+%           - **params** - Flight/Winch controller parameters kk你好
 %
 % Example:
 %       | [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...

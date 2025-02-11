@@ -2,22 +2,15 @@ Functions and Simulink models
 =============================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Function Modules
 
-   functions_list
+   function_pre_simulation
+   function_post_simulation
+   function_flightpaths
 
 Functions
 **********
-.. autosummary::
-   :toctree: functions_list
-   :recursive:
-   :caption: Function Modules
-  
-   Src.Common
-   Extra
-   Src.Common.Flightpaths
-
 Pre-simulation
 ---------------
 .. automodule:: Src.Common

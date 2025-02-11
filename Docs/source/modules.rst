@@ -13,8 +13,7 @@ Functions
    :toctree: functions_list
    :recursive:
    :caption: Function Modules
-   :template: custom-module.rst  # 可选，若要自定义格式
-
+  
    Src.Common
    Extra
    Src.Common.Flightpaths

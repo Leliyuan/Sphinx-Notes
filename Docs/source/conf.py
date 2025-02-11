@@ -56,7 +56,7 @@ m2r_parse_relative_links = False
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {# Toc options
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,

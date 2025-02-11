@@ -20,6 +20,13 @@ Post-simulation & Extra's
   :show-inheritance:
   :undoc-members:
 
+Flightpaths
+--------------------------
+.. automodule:: Src.Common.Flightpaths
+  :members:
+  :show-inheritance:
+  :undoc-members:
+
 Main simulink model
 ********************
 The following image shows the root level of the simulink model. This shows how the different modules work together.

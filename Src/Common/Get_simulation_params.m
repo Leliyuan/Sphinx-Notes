@@ -59,7 +59,8 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %    params.F_t_traction_set = 1.54462e+06;  % Set traction force (N)
 %    params.F_t_retraction_set = 0.396714;  % Set retraction force (N)
 %    loiterStates.Ft_set_loiter = 1.16544e+06;  % Loiter phase tether force setpoint (N)
-
+% .. math::
+%    L = \frac{1}{2} \rho V^2 C_L A
  
 %------------- BEGIN CODE --------------
     

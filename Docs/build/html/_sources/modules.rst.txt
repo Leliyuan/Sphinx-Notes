@@ -2,13 +2,8 @@ Functions and Simulink models
 =============================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: MATLAB Files
+   :maxdepth: 4
 
-   Src/Common/Get_simulation_params
-   Src/Common/PreSim_startup
-   Src/Common/initAllSimParams_DE2019
-   Src/Common/initAllStructs
 Functions
 **********
 Pre-simulation

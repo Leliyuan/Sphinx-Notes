@@ -13,7 +13,7 @@ Functions
 **********
 Pre-simulation
 ---------------
-Flightpaths
+calcCourse2ClosestPoint
 ^^^^^^^^^^^^
 These functions are called by the PathFollowingController.
 Not all required functions are shown here. Some functions are only documented inside simulink.

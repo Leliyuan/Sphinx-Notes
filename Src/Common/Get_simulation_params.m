@@ -49,6 +49,16 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %    function y = square(x)
 %       y = x * x;
 %    end
+%
+% .. code-block:: matlab
+%
+%    params.b_booth = 353.551;  % Booth parameter, determines looping behavior
+%    params.l_tether_min = 0.5121;  % Minimum tether length (m)
+%    params.initial_path_elevation = 42.8742;  % Initial flight path elevation (degrees)
+%    params.w0_decrease_init_phi0 = 0.0891721;  % Initial decrease rate of phi0
+%    params.F_t_traction_set = 1.54462e+06;  % Set traction force (N)
+%    params.F_t_retraction_set = 0.396714;  % Set retraction force (N)
+%    loiterStates.Ft_set_loiter = 1.16544e+06;  % Loiter phase tether force setpoint (N)
 
  
 %------------- BEGIN CODE --------------

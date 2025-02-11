@@ -42,8 +42,14 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 % | Subfunctions: None
 % | MAT-files required: None
 %
-% :Revision: 17-March-2021
-% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
+% .. note::
+%    This function should only be used with valid input values.
+% .. code-block:: matlab
+%
+%    function y = square(x)
+%       y = x * x;
+%    end
+
  
 %------------- BEGIN CODE --------------
     

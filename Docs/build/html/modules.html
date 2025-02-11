@@ -67,7 +67,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Functions and Simulink models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pre-simulation">Pre-simulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#calccourse2closestpoint">calcCourse2ClosestPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-Src.Common.Get_simulation_params">Get_simulation_params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-Src.Common.initAllSimParams_DE2019">initAllSimParams_DE2019</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#post-simulation-extra-s">Post-simulation &amp; Extra’s</a></li>
@@ -132,100 +133,11 @@
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <section id="pre-simulation">
 <h3>Pre-simulation<a class="headerlink" href="#pre-simulation" title="Link to this heading"></a></h3>
-<section id="calccourse2closestpoint">
-<h4>calcCourse2ClosestPoint<a class="headerlink" href="#calccourse2closestpoint" title="Link to this heading"></a></h4>
-<p>These functions are called by the PathFollowingController.
-Not all required functions are shown here. Some functions are only documented inside simulink.</p>
-<dl class="mat function" id="module-Src.Common.Flightpaths.calcCourse2ClosestPoint">
-<dt class="sig sig-object mat" id="Src.Common.Flightpaths.calcCourse2ClosestPoint.calcCourse2ClosestPoint">
-<span class="sig-name descname"><span class="pre">calcCourse2ClosestPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p_VT_W</span></em>, <em class="sig-param"><span class="pre">p_kite_W</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.calcCourse2ClosestPoint.calcCourse2ClosestPoint" title="Link to this definition"></a></dt>
-<dd><p>This function returns the desired course in the tangential plane.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>p_VT_W</strong> – An instance of this class.</p></li>
-<li><p><strong>p_kite_W</strong> – position of the kite in wind reference frame.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>chi_K_des</strong> - the desired course</p></li>
-<li><p><strong>bearing_vec_W</strong> - vector pointing to the desired point</p></li>
-<li><p><strong>bearing_sign</strong> - vector sign</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Other m-files required: none</div>
-<div class="line">Subfunctions: none</div>
-<div class="line">MAT-files required: none</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1.0</p>
-</dd>
-<dt class="field-even">Revision<span class="colon">:</span></dt>
-<dd class="field-even"><p>28.08.2017</p>
-</dd>
-<dt class="field-odd">Author<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Sebastian Rapp</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="mat function" id="module-Src.Common">
-<dt class="sig sig-object mat" id="Src.Common.initAllSimParams_DE2019">
-<span class="sig-name descname"><span class="pre">initAllSimParams_DE2019</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.initAllSimParams_DE2019" title="Link to this definition"></a></dt>
-<dd><p>Initialise simulation parameters for the complete system</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Kite_DOF</strong> – Degrees of freedom of the kite (3 or 6)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>act</strong> - Actuator, aileron elevator and rudder data</p></li>
-<li><p><strong>base_windspeed</strong> - Wind speed at max altitude where speed stays constant</p></li>
-<li><p><strong>constr</strong> - Aircraft manoeuvre and winch constraints</p></li>
-<li><p><strong>ENVMT</strong> - Environmental parameters</p></li>
-<li><p><strong>Lbooth</strong> - Flight path parameters</p></li>
-<li><p><strong>loiterStates</strong> - Initial loiter parameters (power cycle initialisation)</p></li>
-<li><p><strong>DE2019</strong> - Aircraft parameters</p></li>
-<li><p><strong>simInit</strong> - Simulation initialisation parameters</p></li>
-<li><p><strong>T</strong> - Tether dimensions and material properties</p></li>
-<li><p><strong>winchParameter</strong> - Winch dynamic parameters</p></li>
-<li><p><strong>params</strong> - Flight/Winch controller parameters</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<dl>
-<dt>Example:</dt><dd><div class="line-block">
-<div class="line">[act, base_windspeed, constr, ENVMT, Lbooth, …</div>
-<div class="line-block">
-<div class="line">loiterStates, DE2019, simInit, T, winchParameter,params] = initAllSimParams_DE2019()</div>
-</div>
-</div>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Other m-files required: transformFromWtoO.m, transformFromOtoW.m, getPointOnBooth.m</div>
-<div class="line">Subfunctions: None</div>
-<div class="line">MAT-files required: Lib/Common/DE2019_params.mat, Lib/6DoF/Control_allocation_V60.mat, Lib/Common/winddata_Lidar_Avg.mat</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Revision<span class="colon">:</span></dt>
-<dd class="field-odd"><p>22-June-2021</p>
-</dd>
-<dt class="field-even">Author<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="module-Src.Common.Get_simulation_params">
+<span id="get-simulation-params"></span><h4>Get_simulation_params<a class="headerlink" href="#module-Src.Common.Get_simulation_params" title="Link to this heading"></a></h4>
 <dl class="mat function">
-<dt class="sig sig-object mat" id="Src.Common.Get_simulation_params">
-<span class="sig-name descname"><span class="pre">Get_simulation_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windspeed</span></em>, <em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Get_simulation_params" title="Link to this definition"></a></dt>
+<dt class="sig sig-object mat" id="Src.Common.Get_simulation_params.Get_simulation_params">
+<span class="sig-name descname"><span class="pre">Get_simulation_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windspeed</span></em>, <em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Get_simulation_params.Get_simulation_params" title="Link to this definition"></a></dt>
 <dd><p>Initialise simulation parameters for the complete system and set optimised parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -293,67 +205,39 @@ Not all required functions are shown here. Some functions are only documented in
 </div>
 </dd></dl>
 
+</section>
+<section id="module-Src.Common.initAllSimParams_DE2019">
+<span id="initallsimparams-de2019"></span><h4>initAllSimParams_DE2019<a class="headerlink" href="#module-Src.Common.initAllSimParams_DE2019" title="Link to this heading"></a></h4>
 <dl class="mat function">
-<dt class="sig sig-object mat" id="Src.Common.PreSim_startup">
-<span class="sig-name descname"><span class="pre">PreSim_startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.PreSim_startup" title="Link to this definition"></a></dt>
-<dd><p>Set search path, simulink cache folder and clear variables</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Example: </dt><dd><p>PreSim_startup();</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line">Other m-files required: None</div>
-<div class="line">Subfunctions: None</div>
-<div class="line">MAT-files required: None</div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Revision<span class="colon">:</span></dt>
-<dd class="field-odd"><p>17-September-2020</p>
-</dd>
-<dt class="field-even">Author<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="Src.Common.initAllStructs">
-<span class="sig-name descname"><span class="pre">initAllStructs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">base_windspeed</span></em>, <em class="sig-param"><span class="pre">constr</span></em>, <em class="sig-param"><span class="pre">ENVMT</span></em>, <em class="sig-param"><span class="pre">Lbooth</span></em>, <em class="sig-param"><span class="pre">loiterStates</span></em>, <em class="sig-param"><span class="pre">DE2019</span></em>, <em class="sig-param"><span class="pre">simInit</span></em>, <em class="sig-param"><span class="pre">T</span></em>, <em class="sig-param"><span class="pre">winchParameter</span></em>, <em class="sig-param"><span class="pre">params</span></em>, <em class="sig-param"><span class="pre">act</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.initAllStructs" title="Link to this definition"></a></dt>
-<dd><p>Initialise simulation input variable.</p>
+<dt class="sig sig-object mat" id="Src.Common.initAllSimParams_DE2019.initAllSimParams_DE2019">
+<span class="sig-name descname"><span class="pre">initAllSimParams_DE2019</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.initAllSimParams_DE2019.initAllSimParams_DE2019" title="Link to this definition"></a></dt>
+<dd><p>Initialise simulation parameters for the complete system</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> – simulink model name (without .slx extension).</p></li>
-<li><p><strong>base_windspeed</strong> – Wind speed at max altitude where speed stays constant.</p></li>
-<li><p><strong>constr</strong> – Aircraft manoeuvre and winch constraints.</p></li>
-<li><p><strong>ENVMT</strong> – Environmental parameters.</p></li>
-<li><p><strong>Lbooth</strong> – Flight path parameters.</p></li>
-<li><p><strong>loiterStates</strong> – Initial loiter parameters (power cycle initialisation).</p></li>
-<li><p><strong>DE2019</strong> – Aircraft parameters.</p></li>
-<li><p><strong>simInit</strong> – Simulation initialisation parameters.</p></li>
-<li><p><strong>T</strong> – Tether dimensions and material properties.</p></li>
-<li><p><strong>winchParameter</strong> – Winch dynamic parameters.</p></li>
-<li><p><strong>params</strong> – Flight/Winch controller parameters.</p></li>
-<li><p><strong>act</strong> – Actuator, aileron elevator and rudder data.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>Kite_DOF</strong> – Degrees of freedom of the kite (3 or 6)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>simIn</strong> - Simulation input variable containing all parameters needed by simulink.</p></li>
+<li><p><strong>act</strong> - Actuator, aileron elevator and rudder data</p></li>
+<li><p><strong>base_windspeed</strong> - Wind speed at max altitude where speed stays constant</p></li>
+<li><p><strong>constr</strong> - Aircraft manoeuvre and winch constraints</p></li>
+<li><p><strong>ENVMT</strong> - Environmental parameters</p></li>
+<li><p><strong>Lbooth</strong> - Flight path parameters</p></li>
+<li><p><strong>loiterStates</strong> - Initial loiter parameters (power cycle initialisation)</p></li>
+<li><p><strong>DE2019</strong> - Aircraft parameters</p></li>
+<li><p><strong>simInit</strong> - Simulation initialisation parameters</p></li>
+<li><p><strong>T</strong> - Tether dimensions and material properties</p></li>
+<li><p><strong>winchParameter</strong> - Winch dynamic parameters</p></li>
+<li><p><strong>params</strong> - Flight/Winch controller parameters</p></li>
 </ul>
 </p>
 </dd>
 </dl>
 <dl>
 <dt>Example:</dt><dd><div class="line-block">
-<div class="line">simIn = initAllStructs(‘Dyn_6DoF_v2_0_r2019b’, base_windspeed, constr, … </div>
+<div class="line">[act, base_windspeed, constr, ENVMT, Lbooth, …</div>
 <div class="line-block">
-<div class="line">ENVMT, Lbooth, loiterStates, DE2019, simInit, T, winchParameter,params,act)</div>
+<div class="line">loiterStates, DE2019, simInit, T, winchParameter,params] = initAllSimParams_DE2019()</div>
 </div>
 </div>
 </dd>

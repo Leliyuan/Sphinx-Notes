@@ -8,21 +8,18 @@ Functions
 **********
 Pre-simulation
 ---------------
-calcCourse2ClosestPoint
+Get_simulation_params
 ^^^^^^^^^^^^
-These functions are called by the PathFollowingController.
-Not all required functions are shown here. Some functions are only documented inside simulink.
-
-.. automodule:: Src.Common.Flightpaths.calcCourse2ClosestPoint
+.. automodule:: Src.Common.Get_simulation_params
   :members:
   :show-inheritance:
   :undoc-members:
-
-.. automodule:: Src.Common
+initAllSimParams_DE2019
+^^^^^^^^^^^^
+.. automodule:: Src.Common.initAllSimParams_DE2019
   :members:
   :show-inheritance:
   :undoc-members:
-
 Post-simulation & Extra's
 --------------------------
 .. automodule:: Extra

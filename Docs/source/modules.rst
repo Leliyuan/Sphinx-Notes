@@ -3,9 +3,22 @@ Functions and Simulink models
 
 .. toctree::
    :maxdepth: 4
+   :caption: Function Modules
+
+   functions_list
 
 Functions
 **********
+.. autosummary::
+   :toctree: functions_list
+   :recursive:
+   :caption: Function Modules
+   :template: custom-module.rst  # 可选，若要自定义格式
+
+   Src.Common
+   Extra
+   Src.Common.Flightpaths
+
 Pre-simulation
 ---------------
 .. automodule:: Src.Common

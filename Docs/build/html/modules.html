@@ -51,13 +51,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pre-simulation">Pre-simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-simulation-extra-s">Post-simulation &amp; Extra’s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flightpaths">Flightpaths</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#main-simulink-model">Main simulink model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulink-parts">Simulink parts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#flight-controller">Flight controller</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#flightpaths">Flightpaths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-Src.Common.FlightController">Flightpaths</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ground-station">Ground station</a></li>
@@ -663,40 +664,8 @@ limitations under the License.</p>
 </dd></dl>
 
 </section>
-</section>
-<section id="main-simulink-model">
-<h2>Main simulink model<a class="headerlink" href="#main-simulink-model" title="Link to this heading"></a></h2>
-<p>The following image shows the root level of the simulink model. This shows how the different modules work together.
-This level is similar for both 3DoF and 6DoF simulations.</p>
-<figure class="align-default">
-<img alt="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" src="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" />
-</figure>
-</section>
-<section id="simulink-parts">
-<h2>Simulink parts<a class="headerlink" href="#simulink-parts" title="Link to this heading"></a></h2>
-<section id="environment">
-<h3>Environment<a class="headerlink" href="#environment" title="Link to this heading"></a></h3>
-<p>The following image shows the environment subsystem of the simulink model.
-This subsystem is similar for both 3DoF and 6DoF simulations.
-It is used to determine the wind speed at each tether particle and at the kite.</p>
-<figure class="align-default">
-<img alt="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" src="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" />
-</figure>
-</section>
-<section id="flight-controller">
-<span id="module-Src.Common.Environment"></span><h3>Flight controller<a class="headerlink" href="#flight-controller" title="Link to this heading"></a></h3>
-<p>The following image shows the root level of the flight controller in the case of a 3DoF simulation.</p>
-<figure class="align-default">
-<img alt="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" src="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" />
-</figure>
-<p>The following image shows the root level of the flight controller in the case of a 6DoF simulation.</p>
-<figure class="align-default">
-<img alt="_images/simulink-diagram-596c9c4fa356fae5ebd83a3786be0f213e383144.png" src="_images/simulink-diagram-596c9c4fa356fae5ebd83a3786be0f213e383144.png" />
-</figure>
 <section id="flightpaths">
-<span id="module-Src.Common.FlightController"></span><h4>Flightpaths<a class="headerlink" href="#flightpaths" title="Link to this heading"></a></h4>
-<p>These functions are called by the PathFollowingController.
-Not all required functions are shown here. Some functions are only documented inside simulink.</p>
+<h3>Flightpaths<a class="headerlink" href="#flightpaths" title="Link to this heading"></a></h3>
 <dl class="mat function" id="module-Src.Common.Flightpaths">
 <dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromWtoO">
 <span class="sig-name descname"><span class="pre">transformFromWtoO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">vec_W</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromWtoO" title="Link to this definition"></a></dt>
@@ -1214,6 +1183,589 @@ add a predictive part to smooth highly curved paths.</p>
 <dl class="mat function">
 <dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromBtoA">
 <span class="sig-name descname"><span class="pre">transformFromBtoA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_B</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromBtoA" title="Link to this definition"></a></dt>
+<dd><p>This function transforms a vector between body reference frame and aerodynamic reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> – Pitch angle.</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_B</strong> – Vector in body reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_A</strong> - Vector in aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="main-simulink-model">
+<h2>Main simulink model<a class="headerlink" href="#main-simulink-model" title="Link to this heading"></a></h2>
+<p>The following image shows the root level of the simulink model. This shows how the different modules work together.
+This level is similar for both 3DoF and 6DoF simulations.</p>
+<figure class="align-default">
+<img alt="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" src="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" />
+</figure>
+</section>
+<section id="simulink-parts">
+<h2>Simulink parts<a class="headerlink" href="#simulink-parts" title="Link to this heading"></a></h2>
+<section id="environment">
+<h3>Environment<a class="headerlink" href="#environment" title="Link to this heading"></a></h3>
+<p>The following image shows the environment subsystem of the simulink model.
+This subsystem is similar for both 3DoF and 6DoF simulations.
+It is used to determine the wind speed at each tether particle and at the kite.</p>
+<figure class="align-default">
+<img alt="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" src="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" />
+</figure>
+</section>
+<section id="flight-controller">
+<span id="module-Src.Common.Environment"></span><h3>Flight controller<a class="headerlink" href="#flight-controller" title="Link to this heading"></a></h3>
+<p>The following image shows the root level of the flight controller in the case of a 3DoF simulation.</p>
+<figure class="align-default">
+<img alt="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" src="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" />
+</figure>
+<p>The following image shows the root level of the flight controller in the case of a 6DoF simulation.</p>
+<figure class="align-default">
+<img alt="_images/simulink-diagram-596c9c4fa356fae5ebd83a3786be0f213e383144.png" src="_images/simulink-diagram-596c9c4fa356fae5ebd83a3786be0f213e383144.png" />
+</figure>
+<section id="module-Src.Common.FlightController">
+<span id="id1"></span><h4>Flightpaths<a class="headerlink" href="#module-Src.Common.FlightController" title="Link to this heading"></a></h4>
+<p>These functions are called by the PathFollowingController.
+Not all required functions are shown here. Some functions are only documented inside simulink.</p>
+<dl class="mat function" id="module-Src.Common.Flightpaths">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromWtoO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">vec_W</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between wind reference frame and inertial reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection_rad</strong> – Angle between the wind reference frame and the inertial reference frame around the z-axis.</p></li>
+<li><p><strong>vec_W</strong> – Vector in wind reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_O</strong> - Vector in inertial reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Axis system is not only rotated around the z-axis but also also flipped upside down. <span class="math notranslate nohighlight">\(Z_O = -Z_W\)</span>.</p>
+</div>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromAbartoO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">chi_a</span></em>, <em class="sig-param"><span class="pre">gamma_a</span></em>, <em class="sig-param"><span class="pre">vec_Abar</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between rotated aerodynamic reference frame and inertial reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chi_a</strong> – Course angle.</p></li>
+<li><p><strong>gamma_a</strong> – Path angle.</p></li>
+<li><p><strong>vec_Abar</strong> – Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_O</strong> - Vector in inertial reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">calcCourse2ClosestPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p_VT_W</span></em>, <em class="sig-param"><span class="pre">p_kite_W</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function returns the desired course in the tangential plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_VT_W</strong> – An instance of this class.</p></li>
+<li><p><strong>p_kite_W</strong> – position of the kite in wind reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>chi_K_des</strong> - the desired course</p></li>
+<li><p><strong>bearing_vec_W</strong> - vector pointing to the desired point</p></li>
+<li><p><strong>bearing_sign</strong> - vector sign</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Revision<span class="colon">:</span></dt>
+<dd class="field-even"><p>28.08.2017</p>
+</dd>
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromTautoW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">vec_tau</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector in the tangential plane to the wind reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>vec_tau</strong> – Vector in the tangential plane.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_W</strong> - Vector in wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromAbar2B</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mu_a</span></em>, <em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_Abar</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between rotated aerodynamic reference frame and body reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu_a</strong> – Roll angle.</p></li>
+<li><p><strong>alpha</strong> – Pitch angle (Angle of Attack).</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_Abar</strong> – Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_B</strong> - Vector in body reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromOtoW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">vec_O</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between inertial reference frame and wind reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection_rad</strong> – Angle between the wind reference frame and the inertial reference frame around the z-axis.</p></li>
+<li><p><strong>vec_O</strong> – Vector in inertial reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_W</strong> - Vector in wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Axis system is not only rotated around the z-axis but also also flipped upside down. <span class="math notranslate nohighlight">\(Z_W = -Z_O\)</span>.</p>
+</div>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">calculateCommandedCourse2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">delta_vec</span></em>, <em class="sig-param"><span class="pre">delta</span></em>, <em class="sig-param"><span class="pre">delta0</span></em>, <em class="sig-param"><span class="pre">chi_parallel</span></em>, <em class="sig-param"><span class="pre">L_sol</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">v_w_vec</span></em>, <em class="sig-param"><span class="pre">chi_tau_is</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function returns the desired course</p>
+<p>check sign with curve frame - y component is negative in this frame -
+delta Chi is positive and vice versa.
+add a predictive part to smooth highly curved paths.</p>
+<div class="line-block">
+<div class="line">Other m-files required: wrapCourseError.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">wrapCourseError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">chi_ref</span></em>, <em class="sig-param"><span class="pre">chi</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Wrapping of course angle error</p>
+<p>The vectors are laying in the tangential plane attached to the current position on the small earth.</p>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromWtoTau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">vec_W</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector in the wind reference frame to the tangential plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>vec_W</strong> – Vector in wind reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_tau</strong> - Vector in the tangential plane.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">getChiDotGammaDotOK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">v_k_W</span></em>, <em class="sig-param"><span class="pre">chi_tau_dot</span></em>, <em class="sig-param"><span class="pre">r</span></em>, <em class="sig-param"><span class="pre">chi_k</span></em>, <em class="sig-param"><span class="pre">gamma_k</span></em>, <em class="sig-param"><span class="pre">v_ideal</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">gamma_tau</span></em>, <em class="sig-param"><span class="pre">gamma_tau_dot</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function returns the time derivative of the course and path angles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection_rad</strong> – Angle between the wind reference frame and the inertial reference frame around the z-axis.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>v_k_W</strong> – Kite velocity in wind reference frame.</p></li>
+<li><p><strong>chi_tau_dot</strong> – Time derivative of the course angle in the tangential plane.</p></li>
+<li><p><strong>r</strong> – Distance between kite and ground station.</p></li>
+<li><p><strong>chi_k</strong> – Course angle in kinetic reference frame.</p></li>
+<li><p><strong>gamma_k</strong> – Path angle in kinetic reference frame.</p></li>
+<li><p><strong>v_ideal</strong> – Total kinetic velocity in wind reference frame.</p></li>
+<li><p><strong>pos_W</strong> – Position of the kite in wind reference frame.</p></li>
+<li><p><strong>gamma_tau</strong> – Path angle in the tangential plane.</p></li>
+<li><p><strong>gamma_tau_dot</strong> – Time derivative of the path angle in the tangential plane.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>chi_dot</strong> - Course rate</p></li>
+<li><p><strong>gamma_dot</strong> - Path rate</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: transformFromWtoO.m, transformFromWtoTau.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Revision<span class="colon">:</span></dt>
+<dd class="field-even"><p>28.08.2017</p>
+</dd>
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromAtoB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_A</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between aerodynamic reference frame and body reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> – Pitch angle.</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_A</strong> – Vector in aerodynamic reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_B</strong> - Vector in body reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromOtoAbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">chi_a</span></em>, <em class="sig-param"><span class="pre">gamma_a</span></em>, <em class="sig-param"><span class="pre">vec_O</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between inertial reference frame and rotated aerodynamic reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chi_a</strong> – Course angle.</p></li>
+<li><p><strong>gamma_a</strong> – Path angle.</p></li>
+<li><p><strong>vec_O</strong> – Vector in inertial reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_Abar</strong> - Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">doRodriguesRotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">p_target_W</span></em>, <em class="sig-param"><span class="pre">v</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function performs the Rodrigues Rotation on a vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos_W</strong> – Kite position, used to define plane of rotation</p></li>
+<li><p><strong>p_target_W</strong> – Target position, used to define plane of rotation</p></li>
+<li><p><strong>v</strong> – Vector to rotate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vrot</strong> - Rotated vector</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromBtoAbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mu_a</span></em>, <em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_B</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function transforms a vector between body reference frame and aerodynamic reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu_a</strong> – Roll angle.</p></li>
+<li><p><strong>alpha</strong> – Pitch angle.</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_B</strong> – Vector in body reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_Abar</strong> - Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">predictChiDotRequ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">v_w_vec</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">p_C_W</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">DtDs</span></em>, <em class="sig-param"><span class="pre">chi_parallel</span></em><span class="sig-paren">)</span></dt>
+<dd><p>This function calculates the course rate in the tangential plane based on the path curvature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>v_w_vec</strong> – Kite velocity in wind reference frame.</p></li>
+<li><p><strong>pos_W</strong> – Position of the kite in wind reference frame.</p></li>
+<li><p><strong>p_C_W</strong> – Closest position on Lissajous figure.</p></li>
+<li><p><strong>t</strong> – Tangent at p_C_W.</p></li>
+<li><p><strong>DtDs</strong> – Derivative of the tangent with respect to the position on the Lissajous figure.</p></li>
+<li><p><strong>chi_parallel</strong> – Required course angle to reach p_C_W.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>chi_tau_dot</strong> - Required course rate in the tangential plane</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: transformFromWtoTau.m, doRodriguesRotation.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">transformFromBtoA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_B</span></em><span class="sig-paren">)</span></dt>
 <dd><p>This function transforms a vector between body reference frame and aerodynamic reference frame.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

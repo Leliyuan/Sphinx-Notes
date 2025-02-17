@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWES Functionality Description &mdash; MegAWES 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Functions and Simulink models" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MegAWES
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#megawes-3dof-6dof-kite-dynamics">MegAWES (3DoF &amp; 6DoF kite dynamics)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#installing">Installing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#built-with">Built With</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Functions and Simulink models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#pre-simulation">Pre-simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#get-simulation-params">Get_simulation_params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#initallsimparams-de2019">initAllSimParams_DE2019</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#initallstructs">initAllStructs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#presim-startup">PreSim_startup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#offline-visualisation">Offline_visualisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#enhance-plot">enhance_plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#extractsignaloflastcycle-nd">extractSignalOfLastCycle_nD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#extractsignaloflastcycle2">extractSignalOfLastCycle2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#extractsignaloflastcycle3d">extractSignalOfLastCycle3D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#offline-visualisation-power">Offline_visualisation_power</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#theoretical-pcheck">Theoretical_Pcheck</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#post-simulation-animation">Post-simulation &amp; Animation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#replace-mdlref-subsys">Replace_MdlRef_SubSys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#slcopy-mdl2subsys">slcopy_mdl2subsys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#animate-flightpath">animate_flightpath</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#animation-aircraft">animation_aircraft</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#animation-colorbar">animation_colorbar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#animation-simtime">animation_simtime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#animation-tether">animation_tether</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#exporttopreviousversion">exportToPreviousVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#update-previous-version">Update_previous_version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#video-from-simout">Video_from_simOut</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#flightpaths">Flightpaths</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#main-simulink-model">Main simulink model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#simulink-parts">Simulink parts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#environment">Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#flight-controller">Flight controller</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules.html#module-Src.Common.FlightController">Flightpaths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#ground-station">Ground station</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#tether-dynamics">Tether dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#module-Src.Offline_visualisation">Offline visualisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AWES Functionality Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#key-functionalities">Key Functionalities:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kite-dynamics-control">Kite Dynamics Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#energy-conversion">Energy Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adaptive-flight-path">Adaptive Flight Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#power-stabilization">Power Stabilization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-of-kite-dynamics-control-algorithm">Example of Kite Dynamics Control Algorithm:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#awes-system-diagram">AWES System Diagram</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MegAWES</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AWES Functionality Description</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/description.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="awes-functionality-description">
+<h1>AWES Functionality Description<a class="headerlink" href="#awes-functionality-description" title="Link to this heading"></a></h1>
+<p>AWES (Autonomous Wind Energy System) is designed to harness wind energy efficiently by using advanced kite dynamics. The system is capable of adjusting its flight path to optimize energy capture and provide a stable power output. Below are the key functionalities of the AWES:</p>
+</section>
+<section id="key-functionalities">
+<h1>Key Functionalities:<a class="headerlink" href="#key-functionalities" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><strong>Kite Dynamics Control</strong>: The system autonomously controls the kite’s flight path to optimize energy capture based on wind conditions.</p></li>
+<li><p><strong>Energy Conversion</strong>: Converts the kinetic energy from the kite’s motion into electrical energy.</p></li>
+<li><p><strong>Adaptive Flight Path</strong>: The flight path of the kite adapts to changing wind speeds and directions, ensuring consistent power generation.</p></li>
+<li><p><strong>Power Stabilization</strong>: The system maintains a stable power output by adjusting the kite’s position relative to the wind.</p></li>
+</ul>
+<section id="kite-dynamics-control">
+<h2>Kite Dynamics Control<a class="headerlink" href="#kite-dynamics-control" title="Link to this heading"></a></h2>
+<p>The kite dynamics control system is responsible for ensuring the kite follows an optimal flight path based on real-time wind measurements. It uses advanced algorithms to steer the kite and optimize the angle of attack, maximizing energy efficiency.</p>
+</section>
+<section id="energy-conversion">
+<h2>Energy Conversion<a class="headerlink" href="#energy-conversion" title="Link to this heading"></a></h2>
+<p>AWES features a highly efficient energy conversion system that captures the kinetic energy generated by the kite’s motion through tether cables and transforms it into usable electrical power. The system operates in both high and low wind conditions, ensuring stable energy generation.</p>
+</section>
+<section id="adaptive-flight-path">
+<h2>Adaptive Flight Path<a class="headerlink" href="#adaptive-flight-path" title="Link to this heading"></a></h2>
+<p>The system’s flight path is continuously adjusted based on wind speed and direction. The kite’s position is monitored and controlled to ensure that it remains in the optimal flight envelope for energy capture, even during gusts or changes in the wind profile.</p>
+</section>
+<section id="power-stabilization">
+<h2>Power Stabilization<a class="headerlink" href="#power-stabilization" title="Link to this heading"></a></h2>
+<p>AWES includes a power stabilization mechanism that ensures a steady output despite fluctuations in wind speed. This is achieved through real-time control adjustments of the kite’s orientation and tether length to minimize power variability.</p>
+</section>
+<section id="example-of-kite-dynamics-control-algorithm">
+<h2>Example of Kite Dynamics Control Algorithm:<a class="headerlink" href="#example-of-kite-dynamics-control-algorithm" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">control_kite_position</span><span class="p">(</span><span class="n">wind_speed</span><span class="p">,</span> <span class="n">angle_of_attack</span><span class="p">):</span>
+    <span class="c1"># Algorithm to control kite position based on wind speed</span>
+    <span class="k">if</span> <span class="n">wind_speed</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;high&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;low&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="awes-system-diagram">
+<h2>AWES System Diagram<a class="headerlink" href="#awes-system-diagram" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/awes_system_diagram.jpg"><img alt="_images/awes_system_diagram.jpg" class="align-center" src="_images/awes_system_diagram.jpg" style="width: 600px;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Functions and Simulink models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Delft University of Technology.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

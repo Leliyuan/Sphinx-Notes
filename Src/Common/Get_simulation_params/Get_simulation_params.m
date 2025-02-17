@@ -21,6 +21,7 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 % :param Kite_DOF: Degrees of freedom of the kite (3 or 6)
 %
 % :returns:
+%
 %           - **act** - Actuator, aileron elevator and rudder data
 %           - **base_windspeed** - Wind speed at max altitude where speed stays constant
 %           - **constr** - Aircraft manoeuvre and winch constraints
@@ -34,6 +35,7 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %           - **params** - Flight/Winch controller parameters kk你好
 %
 % Example:
+%
 %       | [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %       |             loiterStates, params, simInit, T, winchParameter] = ...
 %       |             get_simulation_params(22, 6)

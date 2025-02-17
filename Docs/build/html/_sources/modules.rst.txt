@@ -20,6 +20,7 @@ initAllSimParams_DE2019
   :members:
   :show-inheritance:
   :undoc-members:
+
 Post-simulation & Extra's
 --------------------------
 .. automodule:: Extra

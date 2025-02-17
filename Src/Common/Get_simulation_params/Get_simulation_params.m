@@ -15,60 +15,60 @@
 function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
         loiterStates, params, simInit, T, winchParameter] = ...
         Get_simulation_params(windspeed,Kite_DOF)
-%Initialise simulation parameters for the complete system and set optimised parameters
+%% Get_simulation_params
+%
+% This function initializes the simulation parameters required for the kite system
+% based on the given wind speed and degrees of freedom (DOF) of the kite.
+%
+% The function follows these steps:
+%
+% 1. Assigns the input wind speed to a local variable.
+% 2. Checks the kite's degrees of freedom (3DOF or 6DOF).
+% 3. Calls an external function `initAllSimParams_DE2019` to initialize the base parameters.
+% 4. If the kite has 3DOF, it sets a fixed base wind speed and predefined control parameters.
+% 5. If the kite has 6DOF, it adjusts control parameters dynamically based on the input wind speed.
+%
+% The function structure can be broken down into:
+%
+% - **Initialization**: Extract wind speed and check the Kite_DOF.
+% - **3DOF Model Handling**: Uses a simple point-mass model with preset values.
+% - **6DOF Model Handling**: Dynamically adjusts control parameters based on specific wind speeds.
+% - **Error Handling**: Ensures valid Kite_DOF values and warns if wind speed is different from preset limits.
 %
 % :param windspeed: Wind speed at which the parameters should be read
+% :type windspeed: double
 % :param Kite_DOF: Degrees of freedom of the kite (3 or 6)
+% :type Kite_DOF: integer
 %
 % :returns:
 %
-%           - **act** - Actuator, aileron elevator and rudder data
-%           - **base_windspeed** - Wind speed at max altitude where speed stays constant
-%           - **constr** - Aircraft manoeuvre and winch constraints
-%           - **ENVMT** - Environmental parameters
-%           - **Lbooth** - Flight path parameters
-%           - **loiterStates** - Initial loiter parameters (power cycle initialisation)
-%           - **DE2019** - Aircraft parameters
-%           - **simInit** - Simulation initialisation parameters
-%           - **T** - Tether dimensions and material properties
-%           - **winchParameter** - Winch dynamic parameters 
-%           - **params** - Flight/Winch controller parameters kk你好
+%   - **act** (*struct*): Actuator, aileron elevator and rudder data
+%   - **base_windspeed** (*double*): Wind speed at max altitude where speed stays constant
+%   - **constr** (*struct*): Aircraft manoeuvre and winch constraints
+%   - **ENVMT** (*struct*): Environmental parameters
+%   - **Lbooth** (*struct*): Flight path parameters
+%   - **loiterStates** (*struct*): Initial loiter parameters (power cycle initialisation)
+%   - **DE2019** (*struct*): Aircraft parameters
+%   - **simInit** (*struct*): Simulation initialisation parameters
+%   - **T** (*struct*): Tether dimensions and material properties
+%   - **winchParameter** (*struct*): Winch dynamic parameters
+%   - **params** (*struct*): Flight/Winch controller parameters
 %
 % Example:
 %
-%       | [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
-%       |             loiterStates, params, simInit, T, winchParameter] = ...
-%       |             get_simulation_params(22, 6)
+% .. code-block:: matlab
+%
+%    [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
+%         loiterStates, params, simInit, T, winchParameter] = ...
+%         Get_simulation_params(22, 6);
 %
 % | Other m-files required: initAllSimParams_DE2019.m
 % | Subfunctions: None
 % | MAT-files required: None
 %
-% .. note::
-%    This function should only be used with valid input values.
-% .. code-block:: matlab
-%
-%    function y = square(x)
-%       y = x * x;
-%    end
-%
-% .. code-block:: matlab
-%
-%    params.b_booth = 353.551;  % Booth parameter, determines looping behavior
-%    params.l_tether_min = 0.5121;  % Minimum tether length (m)
-%    params.initial_path_elevation = 42.8742;  % Initial flight path elevation (degrees)
-%    params.w0_decrease_init_phi0 = 0.0891721;  % Initial decrease rate of phi0
-%    params.F_t_traction_set = 1.54462e+06;  % Set traction force (N)
-%    params.F_t_retraction_set = 0.396714;  % Set retraction force (N)
-%    loiterStates.Ft_set_loiter = 1.16544e+06;  % Loiter phase tether force setpoint (N)
-%
-%
-%
-% .. math::
-%    L = \frac{1}{2} \rho V^2 C_L A
-% | 参考公式如下
-% | Subfunctions: None
-% | MAT-files required: None
+% :Revision: 17-March-2021
+% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
+
  
 %------------- BEGIN CODE --------------
     

@@ -14,34 +14,89 @@
 
 function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
     loiterStates, params, simInit, T, winchParameter] = initAllSimParams_DE2019(Kite_DOF)
-%Initialise simulation parameters for the complete system
+% This function initializes the parameters for a complete kite simulation system,
+% taking into account environmental factors, aircraft constraints, and flight path parameters.
 %
-% :param Kite_DOF: Degrees of freedom of the kite (3 or 6)
+% **Arguments**:
+% - **Kite_DOF**: Degrees of freedom of the kite (3 or 6), which determines the complexity of the system.
 %
-% :returns:
-%           - **act** - Actuator, aileron elevator and rudder data
-%           - **base_windspeed** - Wind speed at max altitude where speed stays constant
-%           - **constr** - Aircraft manoeuvre and winch constraints
-%           - **ENVMT** - Environmental parameters
-%           - **Lbooth** - Flight path parameters
-%           - **loiterStates** - Initial loiter parameters (power cycle initialisation)
-%           - **DE2019** - Aircraft parameters
-%           - **simInit** - Simulation initialisation parameters
-%           - **T** - Tether dimensions and material properties
-%           - **winchParameter** - Winch dynamic parameters
-%           - **params** - Flight/Winch controller parameters
+% **Returns**:
+% - **act**: Actuator parameters, including aileron, elevator, and rudder data.
+% - **base_windspeed**: Wind speed at maximum altitude, where the speed stays constant.
+% - **constr**: Aircraft maneuver and winch constraints.
+% - **ENVMT**: Environmental parameters.
+% - **Lbooth**: Flight path parameters.
+% - **loiterStates**: Initial loiter parameters (for power cycle initialization).
+% - **DE2019**: Aircraft parameters, including characteristics like wing lift.
+% - **simInit**: Simulation initialization parameters, including time steps and logging intervals.
+% - **T**: Tether dimensions and material properties.
+% - **winchParameter**: Winch dynamic parameters, including reel-out speed and friction.
+% - **params**: Flight and winch controller parameters.
 %
-% Example:
-%       | [act, base_windspeed, constr, ENVMT, Lbooth, ...
-%       |    loiterStates, DE2019, simInit, T, winchParameter,params] = initAllSimParams_DE2019()
+% **Example**:
+% ::
+%    [act, base_windspeed, constr, ENVMT, Lbooth, loiterStates, DE2019, simInit, T, winchParameter, params] = initAllSimParams_DE2019();
 %
-% | Other m-files required: transformFromWtoO.m, transformFromOtoW.m, getPointOnBooth.m
-% | Subfunctions: None
-% | MAT-files required: Lib/Common/DE2019_params.mat, Lib/6DoF/Control_allocation_V60.mat, Lib/Common/winddata_Lidar_Avg.mat
+% **Other Required Files**:
+% - transformFromWtoO.m
+% - transformFromOtoW.m
+% - getPointOnBooth.m
 %
-% :Revision: 22-June-2021
-% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
- 
+% **MAT-files**:
+% - Lib/Common/DE2019_params.mat
+% - Lib/6DoF/Control_allocation_V60.mat
+% - Lib/Common/winddata_Lidar_Avg.mat
+%
+% **Function Breakdown**:
+% This function is divided into several distinct sections that each serve a specific purpose:
+%
+% 1. **Aircraft Parameters Initialization**:
+%    - Loads the DE2019 aircraft parameters and constraints from the `DE2019_params.mat` file.
+%
+% 2. **Environmental Parameters Setup**:
+%    - Defines key constants like gravity (`ENVMT.g`), air density (`ENVMT.rhos`), and wind direction (`ENVMT.windDirection_rad`).
+%    - Loads wind data (`winddata_Lidar_Avg.mat`) and calculates the wind speed at the maximum altitude.
+%
+% 3. **Simulation Initialization**:
+%    - Initializes simulation parameters like simulation time (`simInit.TSIM`), time step (`simInit.dt`), and various logging sample times for force, speed, and position.
+%    - Sets up initial conditions for aircraft position and attitude, converting between wind frame and object frame.
+%
+% 4. **Aircraft Constraints**:
+%    - Defines constraints on the aircraft's motion, such as maximum angles (`mu_a_max`), lift coefficients (`max_lift`), and velocity limits.
+%    - Specifies constraints for both the traction (power generation) and retraction (retrieving the kite) phases, as well as winch speed and acceleration limits.
+%
+% 5. **Tether Parameters**:
+%    - Calculates the tether diameter and linear density based on the maximum tether force, material properties, and safety factors.
+%    - Initializes the tether's physical properties, including stiffness (elastic modulus) and cross-sectional area.
+%    - Sets up the initial length and discretization of the tether.
+%
+% 6. **Winch Parameters**:
+%    - Defines the parameters of the winch system, such as initial reel-out speed, radius, inertia, and friction.
+%    - Sets the initial angular position of the winch drum based on tether length.
+%
+% 7. **Flight Path Parameters**:
+%    - Defines the flight path geometry, including parameters like the size, shape, and elevation of the flight path.
+%    - Specifies limits on the tether length during flight and the elevation angle at which transitions occur between flight phases.
+%
+% 8. **Control Parameters**:
+%    - Sets the gains for the controllers in different flight phases (traction, retraction, loitering). These parameters determine the control behavior for maintaining position, adjusting speed, and correcting flight path errors.
+%    - The `params` structure also contains values for controlling angles, speed, and winch behavior during various phases.
+%
+% 9. **Loitering State Parameters**:
+%    - Specifies the parameters for the loitering state, including desired velocity, control gains for altitude and course, and a radius for the loitering path.
+%    - Defines valid angular ranges for transitioning between loitering and other operational phases.
+%
+% **Variables and Physical Meaning**:
+% - **act**: Contains actuator control parameters for various flight surfaces (e.g., aileron, rudder).
+% - **ENVMT**: Describes environmental conditions, including gravity, air density, wind speed, and direction.
+% - **constr**: Contains physical constraints on the aircraft's movement, such as lift and speed limits.
+% - **T**: Describes the tether system, including its diameter, stiffness, and force characteristics.
+% - **params**: Defines the control system's parameters, including gains for altitude, speed, and course control.
+% - **simInit**: Initializes simulation parameters, such as time step and logging intervals.
+%
+% :Revision: 17-February-2025
+% :Author: YuanHao Cui (yuanlidh@mail.dlut.edu.cn)
+
 %------------- BEGIN CODE --------------
 %% Obtain large-scale wing params
 load('DE2019_params.mat','DE2019','constraintOut');

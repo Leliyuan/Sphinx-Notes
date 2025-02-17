@@ -9,29 +9,33 @@ Functions
 Pre-simulation
 ---------------
 Get_simulation_params
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Common.Get_simulation_params
   :members:
   :show-inheritance:
   :undoc-members:
+
 initAllSimParams_DE2019
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Common.initAllSimParams_DE2019
   :members:
   :show-inheritance:
   :undoc-members:
-initAllSimParams_DE2019
-^^^^^^^^^^^^
-.. automodule:: Src.Common.initAllSimParams_DE2019
+
+initAllStructs
+^^^^^^^^^^^^^^
+.. automodule:: Src.Common.initAllStructs
   :members:
   :show-inheritance:
   :undoc-members:
-initAllSimParams_DE2019
-^^^^^^^^^^^^
-.. automodule:: Src.Common.initAllSimParams_DE2019
+
+PreSim_startup
+^^^^^^^^^^^^^^
+.. automodule:: Src.Common.PreSim_startup
   :members:
   :show-inheritance:
   :undoc-members:
+
 Offline_visualisation
 ----------------------
 enhance_plot
@@ -40,94 +44,109 @@ enhance_plot
   :members:
   :show-inheritance:
   :undoc-members:
+
 extractSignalOfLastCycle_nD
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Offline_visualisation.extractSignalOfLastCycle_nD
   :members:
   :show-inheritance:
   :undoc-members:
+
 extractSignalOfLastCycle2
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Offline_visualisation.extractSignalOfLastCycle2
   :members:
   :show-inheritance:
   :undoc-members:
+
 extractSignalOfLastCycle3D
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Offline_visualisation.extractSignalOfLastCycle3D
   :members:
   :show-inheritance:
   :undoc-members:
+
 Offline_visualisation_power
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Offline_visualisation.Offline_visualisation_power
   :members:
   :show-inheritance:
   :undoc-members:
+
 Theoretical_Pcheck
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Offline_visualisation.Theoretical_Pcheck
   :members:
   :show-inheritance:
   :undoc-members:
+
 Post-simulation & Animation
 --------------------------
 Replace_MdlRef_SubSys
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.Replace_MdlRef_SubSys
   :members:
   :show-inheritance:
   :undoc-members:
+
 slcopy_mdl2subsys
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.slcopy_mdl2subsys
   :members:
   :show-inheritance:
   :undoc-members:
+
 animate_flightpath
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.animate_flightpath
   :members:
   :show-inheritance:
   :undoc-members:
+
 animation_aircraft
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.animation_aircraft
   :members:
   :show-inheritance:
   :undoc-members:
+
 animation_colorbar
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.animation_colorbar
   :members:
   :show-inheritance:
   :undoc-members:
+
 animation_simtime
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.animation_simtime
   :members:
   :show-inheritance:
   :undoc-members:
+
 animation_tether
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.animation_tether
   :members:
   :show-inheritance:
   :undoc-members:
+
 exportToPreviousVersion
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.exportToPreviousVersion
   :members:
   :show-inheritance:
   :undoc-members:
+
 Update_previous_version
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.Update_previous_version
   :members:
   :show-inheritance:
   :undoc-members:
+
 Video_from_simOut
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 .. automodule:: Src.Extra.Video_from_simOut
   :members:
   :show-inheritance:

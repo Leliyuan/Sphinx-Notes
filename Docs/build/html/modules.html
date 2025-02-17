@@ -161,71 +161,66 @@
 <dl class="mat function" id="module-Src.Common.Get_simulation_params">
 <dt class="sig sig-object mat" id="Src.Common.Get_simulation_params.Get_simulation_params">
 <span class="sig-name descname"><span class="pre">Get_simulation_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windspeed</span></em>, <em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Get_simulation_params.Get_simulation_params" title="Link to this definition"></a></dt>
-<dd><p>Initialise simulation parameters for the complete system and set optimised parameters</p>
+<dd><p>This function initializes the simulation parameters required for the kite system
+based on the given wind speed and degrees of freedom (DOF) of the kite.</p>
+<p>The function follows these steps:</p>
+<ol class="arabic simple">
+<li><p>Assigns the input wind speed to a local variable.</p></li>
+<li><p>Checks the kite’s degrees of freedom (3DOF or 6DOF).</p></li>
+<li><p>Calls an external function <cite>initAllSimParams_DE2019</cite> to initialize the base parameters.</p></li>
+<li><p>If the kite has 3DOF, it sets a fixed base wind speed and predefined control parameters.</p></li>
+<li><p>If the kite has 6DOF, it adjusts control parameters dynamically based on the input wind speed.</p></li>
+</ol>
+<p>The function structure can be broken down into:</p>
+<ul class="simple">
+<li><p><strong>Initialization</strong>: Extract wind speed and check the Kite_DOF.</p></li>
+<li><p><strong>3DOF Model Handling</strong>: Uses a simple point-mass model with preset values.</p></li>
+<li><p><strong>6DOF Model Handling</strong>: Dynamically adjusts control parameters based on specific wind speeds.</p></li>
+<li><p><strong>Error Handling</strong>: Ensures valid Kite_DOF values and warns if wind speed is different from preset limits.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>windspeed</strong> – Wind speed at which the parameters should be read</p></li>
-<li><p><strong>Kite_DOF</strong> – Degrees of freedom of the kite (3 or 6)</p></li>
+<li><p><strong>windspeed</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – Wind speed at which the parameters should be read</p></li>
+<li><p><strong>Kite_DOF</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) – Degrees of freedom of the kite (3 or 6)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>act</strong> - Actuator, aileron elevator and rudder data</p></li>
-<li><p><strong>base_windspeed</strong> - Wind speed at max altitude where speed stays constant</p></li>
-<li><p><strong>constr</strong> - Aircraft manoeuvre and winch constraints</p></li>
-<li><p><strong>ENVMT</strong> - Environmental parameters</p></li>
-<li><p><strong>Lbooth</strong> - Flight path parameters</p></li>
-<li><p><strong>loiterStates</strong> - Initial loiter parameters (power cycle initialisation)</p></li>
-<li><p><strong>DE2019</strong> - Aircraft parameters</p></li>
-<li><p><strong>simInit</strong> - Simulation initialisation parameters</p></li>
-<li><p><strong>T</strong> - Tether dimensions and material properties</p></li>
-<li><p><strong>winchParameter</strong> - Winch dynamic parameters</p></li>
-<li><p><strong>params</strong> - Flight/Winch controller parameters kk你好</p></li>
+<li><p><strong>act</strong> (<em>struct</em>): Actuator, aileron elevator and rudder data</p></li>
+<li><p><strong>base_windspeed</strong> (<em>double</em>): Wind speed at max altitude where speed stays constant</p></li>
+<li><p><strong>constr</strong> (<em>struct</em>): Aircraft manoeuvre and winch constraints</p></li>
+<li><p><strong>ENVMT</strong> (<em>struct</em>): Environmental parameters</p></li>
+<li><p><strong>Lbooth</strong> (<em>struct</em>): Flight path parameters</p></li>
+<li><p><strong>loiterStates</strong> (<em>struct</em>): Initial loiter parameters (power cycle initialisation)</p></li>
+<li><p><strong>DE2019</strong> (<em>struct</em>): Aircraft parameters</p></li>
+<li><p><strong>simInit</strong> (<em>struct</em>): Simulation initialisation parameters</p></li>
+<li><p><strong>T</strong> (<em>struct</em>): Tether dimensions and material properties</p></li>
+<li><p><strong>winchParameter</strong> (<em>struct</em>): Winch dynamic parameters</p></li>
+<li><p><strong>params</strong> (<em>struct</em>): Flight/Winch controller parameters</p></li>
 </ul>
 </p>
 </dd>
 </dl>
 <p>Example:</p>
-<blockquote>
-<div><div class="line-block">
-<div class="line">[act, base_windspeed, constr, DE2019, ENVMT, Lbooth, …</div>
-<div class="line-block">
-<div class="line">loiterStates, params, simInit, T, winchParameter] = …</div>
-<div class="line">get_simulation_params(22, 6)</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="n">base_windspeed</span><span class="p">,</span><span class="w"> </span><span class="n">constr</span><span class="p">,</span><span class="w"> </span><span class="n">DE2019</span><span class="p">,</span><span class="w"> </span><span class="n">ENVMT</span><span class="p">,</span><span class="w"> </span><span class="n">Lbooth</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">     </span><span class="n">loiterStates</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">simInit</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">winchParameter</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">...</span>
+<span class="w">     </span><span class="n">Get_simulation_params</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+</pre></div>
 </div>
-</div>
-</div></blockquote>
 <div class="line-block">
 <div class="line">Other m-files required: initAllSimParams_DE2019.m</div>
 <div class="line">Subfunctions: None</div>
 <div class="line">MAT-files required: None</div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This function should only be used with valid input values.</p>
-</div>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span>x<span class="p">)</span>
-<span class="w">   </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">.</span><span class="n">b_booth</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">353.551</span><span class="p">;</span><span class="w">  </span><span class="c">% Booth parameter, determines looping behavior</span>
-<span class="n">params</span><span class="p">.</span><span class="n">l_tether_min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.5121</span><span class="p">;</span><span class="w">  </span><span class="c">% Minimum tether length (m)</span>
-<span class="n">params</span><span class="p">.</span><span class="n">initial_path_elevation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">42.8742</span><span class="p">;</span><span class="w">  </span><span class="c">% Initial flight path elevation (degrees)</span>
-<span class="n">params</span><span class="p">.</span><span class="n">w0_decrease_init_phi0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0891721</span><span class="p">;</span><span class="w">  </span><span class="c">% Initial decrease rate of phi0</span>
-<span class="n">params</span><span class="p">.</span><span class="n">F_t_traction_set</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.54462e+06</span><span class="p">;</span><span class="w">  </span><span class="c">% Set traction force (N)</span>
-<span class="n">params</span><span class="p">.</span><span class="n">F_t_retraction_set</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.396714</span><span class="p">;</span><span class="w">  </span><span class="c">% Set retraction force (N)</span>
-<span class="n">loiterStates</span><span class="p">.</span><span class="n">Ft_set_loiter</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.16544e+06</span><span class="p">;</span><span class="w">  </span><span class="c">% Loiter phase tether force setpoint (N)</span>
-</pre></div>
-</div>
-<div class="math notranslate nohighlight">
-\[L = \frac{1}{2} \rho V^2 C_L A\]</div>
-<div class="line-block">
-<div class="line">参考公式如下</div>
-<div class="line">Subfunctions: None</div>
-<div class="line">MAT-files required: None</div>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision<span class="colon">:</span></dt>
+<dd class="field-odd"><p>17-March-2021</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

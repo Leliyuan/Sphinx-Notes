@@ -66,8 +66,8 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 % | Subfunctions: None
 % | MAT-files required: None
 %
-% :Revision: 17-March-2021
-% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
+% :Revision: 17-February-2025
+% :Author: YuanHao Cui (yuanlidh@mail.dlut.edu.cn)
 
  
 %------------- BEGIN CODE --------------

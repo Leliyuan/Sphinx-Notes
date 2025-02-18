@@ -97,6 +97,7 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 % :Revision: 17-February-2025
 % :Author: YuanHao Cui (yuanlidh@mail.dlut.edu.cn)
 
+
 %------------- BEGIN CODE --------------
 %% Obtain large-scale wing params
 load('DE2019_params.mat','DE2019','constraintOut');

@@ -263,17 +263,25 @@ taking into account environmental factors, aircraft constraints, and flight path
 </dd>
 </dl>
 <p><strong>Example</strong>:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="n">base_windspeed</span><span class="p">,</span><span class="w"> </span><span class="n">constr</span><span class="p">,</span><span class="w"> </span><span class="n">ENVMT</span><span class="p">,</span><span class="w"> </span><span class="n">Lbooth</span><span class="p">,</span><span class="w"> </span><span class="n">loiterStates</span><span class="p">,</span><span class="w"> </span><span class="n">DE2019</span><span class="p">,</span><span class="w"> </span><span class="n">simInit</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">winchParameter</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">initAllSimParams_DE2019</span><span class="p">(</span><span class="n">Kite_DOF</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="n">base_windspeed</span><span class="p">,</span><span class="w"> </span><span class="n">constr</span><span class="p">,</span><span class="w"> </span><span class="n">ENVMT</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">      </span><span class="n">Lbooth</span><span class="p">,</span><span class="w"> </span><span class="n">loiterStates</span><span class="p">,</span><span class="w"> </span><span class="n">DE2019</span><span class="p">,</span><span class="w"> </span><span class="n">simInit</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">      </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">winchParameter</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">initAllSimParams_DE2019</span><span class="p">(</span><span class="n">Kite_DOF</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><strong>Other Required Files</strong>:
-- transformFromWtoO.m
-- transformFromOtoW.m
-- getPointOnBooth.m</p>
-<p><strong>MAT-files</strong>:
-- Lib/Common/DE2019_params.mat
-- Lib/6DoF/Control_allocation_V60.mat
-- Lib/Common/winddata_Lidar_Avg.mat</p>
+<dl class="simple">
+<dt><strong>Other Required Files</strong>:</dt><dd><ul class="simple">
+<li><p>transformFromWtoO.m</p></li>
+<li><p>transformFromOtoW.m</p></li>
+<li><p>getPointOnBooth.m</p></li>
+</ul>
+</dd>
+<dt><strong>MAT-files</strong>:</dt><dd><ul class="simple">
+<li><p>Lib/Common/DE2019_params.mat</p></li>
+<li><p>Lib/6DoF/Control_allocation_V60.mat</p></li>
+<li><p>Lib/Common/winddata_Lidar_Avg.mat</p></li>
+</ul>
+</dd>
+</dl>
 <p><strong>Function Breakdown</strong>:
 This function is divided into several distinct sections that each serve a specific purpose:</p>
 <ol class="arabic simple">
@@ -305,13 +313,17 @@ This function is divided into several distinct sections that each serve a specif
 - Specifies the parameters for the loitering state, including desired velocity, control gains for altitude and course, and a radius for the loitering path.
 - Defines valid angular ranges for transitioning between loitering and other operational phases.</p></li>
 </ol>
-<p><strong>Variables and Physical Meaning</strong>:
-- <strong>act</strong>: Contains actuator control parameters for various flight surfaces (e.g., aileron, rudder).
-- <strong>ENVMT</strong>: Describes environmental conditions, including gravity, air density, wind speed, and direction.
-- <strong>constr</strong>: Contains physical constraints on the aircraft’s movement, such as lift and speed limits.
-- <strong>T</strong>: Describes the tether system, including its diameter, stiffness, and force characteristics.
-- <strong>params</strong>: Defines the control system’s parameters, including gains for altitude, speed, and course control.
-- <strong>simInit</strong>: Initializes simulation parameters, such as time step and logging intervals.</p>
+<dl class="simple">
+<dt><strong>Variables and Physical Meaning</strong>:</dt><dd><ul class="simple">
+<li><p><strong>act</strong>: Contains actuator control parameters for various flight surfaces (e.g., aileron, rudder).</p></li>
+<li><p><strong>ENVMT</strong>: Describes environmental conditions, including gravity, air density, wind speed, and direction.</p></li>
+<li><p><strong>constr</strong>: Contains physical constraints on the aircraft’s movement, such as lift and speed limits.</p></li>
+<li><p><strong>T</strong>: Describes the tether system, including its diameter, stiffness, and force characteristics.</p></li>
+<li><p><strong>params</strong>: Defines the control system’s parameters, including gains for altitude, speed, and course control.</p></li>
+<li><p><strong>simInit</strong>: Initializes simulation parameters, such as time step and logging intervals.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Revision<span class="colon">:</span></dt>
 <dd class="field-odd"><p>17-February-2025</p>

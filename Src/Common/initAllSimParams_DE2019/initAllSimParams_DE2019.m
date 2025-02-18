@@ -101,14 +101,6 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %    - Specifies the parameters for the loitering state, including desired velocity, control gains for altitude and course, and a radius for the loitering path.
 %    - Defines valid angular ranges for transitioning between loitering and other operational phases.
 %
-% **Variables and Physical Meaning**:
-%   - **act**: Contains actuator control parameters for various flight surfaces (e.g., aileron, rudder).
-%   - **ENVMT**: Describes environmental conditions, including gravity, air density, wind speed, and direction.
-%   - **constr**: Contains physical constraints on the aircraft's movement, such as lift and speed limits.
-%   - **T**: Describes the tether system, including its diameter, stiffness, and force characteristics.
-%   - **params**: Defines the control system's parameters, including gains for altitude, speed, and course control.
-%   - **simInit**: Initializes simulation parameters, such as time step and logging intervals.
-%
 % :Revision: 17-February-2025
 % :Author: YuanHao Cui (yuanlidh@mail.dlut.edu.cn)
 

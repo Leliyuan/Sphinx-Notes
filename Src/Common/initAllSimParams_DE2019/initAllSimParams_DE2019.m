@@ -27,41 +27,6 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 % 6. Initializes control system parameters for aircraft maneuvering during different phases.
 % 7. Sets loitering state parameters for the power cycle initialization.
 %
-% :param Kite_DOF: Degrees of freedom of the kite (3 or 6), which determines the complexity of the system.
-% :type Kite_DOF: integer
-%
-% :returns:
-%
-%   - **act** (*struct*): Actuator parameters, including aileron, elevator, and rudder data.
-%   - **base_windspeed** (*double*): Wind speed at maximum altitude, where the speed stays constant.
-%   - **constr** (*struct*): Aircraft maneuver and winch constraints.
-%   - **ENVMT** (*struct*): Environmental parameters, including gravity and air density.
-%   - **Lbooth** (*struct*): Flight path parameters, including size and shape of the flight path.
-%   - **loiterStates** (*struct*): Initial loiter parameters for power cycle initialization.
-%   - **DE2019** (*struct*): Aircraft parameters, including wing lift characteristics.
-%   - **simInit** (*struct*): Simulation initialization parameters, including time step and logging sample times.
-%   - **T** (*struct*): Tether dimensions and material properties.
-%   - **winchParameter** (*struct*): Winch dynamic parameters, including reel-out speed and friction.
-%   - **params** (*struct*): Flight and winch controller parameters, including control gains and limits.
-%
-% **Example**:
-%
-% .. code-block:: matlab
-%
-%    [act, base_windspeed, constr, ENVMT, ...
-%          Lbooth, loiterStates, DE2019, simInit, ...
-%          T, winchParameter, params] = initAllSimParams_DE2019(Kite_DOF);
-%
-% **Other Required Files**:
-%   - transformFromWtoO.m
-%   - transformFromOtoW.m
-%   - getPointOnBooth.m
-%
-% **MAT-files**:
-%   - Lib/Common/DE2019_params.mat
-%   - Lib/6DoF/Control_allocation_V60.mat
-%   - Lib/Common/winddata_Lidar_Avg.mat
-%
 % **Function Breakdown**:
 % This function is divided into several distinct sections that each serve a specific purpose:
 %
@@ -100,6 +65,41 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 % 9. **Loitering State Parameters**:
 %    - Specifies the parameters for the loitering state, including desired velocity, control gains for altitude and course, and a radius for the loitering path.
 %    - Defines valid angular ranges for transitioning between loitering and other operational phases.
+% :param Kite_DOF: Degrees of freedom of the kite (3 or 6), which determines the complexity of the system.
+% :type Kite_DOF: integer
+%
+% :returns:
+%
+%   - **act** (*struct*): Actuator parameters, including aileron, elevator, and rudder data.
+%   - **base_windspeed** (*double*): Wind speed at maximum altitude, where the speed stays constant.
+%   - **constr** (*struct*): Aircraft maneuver and winch constraints.
+%   - **ENVMT** (*struct*): Environmental parameters, including gravity and air density.
+%   - **Lbooth** (*struct*): Flight path parameters, including size and shape of the flight path.
+%   - **loiterStates** (*struct*): Initial loiter parameters for power cycle initialization.
+%   - **DE2019** (*struct*): Aircraft parameters, including wing lift characteristics.
+%   - **simInit** (*struct*): Simulation initialization parameters, including time step and logging sample times.
+%   - **T** (*struct*): Tether dimensions and material properties.
+%   - **winchParameter** (*struct*): Winch dynamic parameters, including reel-out speed and friction.
+%   - **params** (*struct*): Flight and winch controller parameters, including control gains and limits.
+%
+% **Example**:
+%
+% .. code-block:: matlab
+%
+%    [act, base_windspeed, constr, ENVMT, ...
+%          Lbooth, loiterStates, DE2019, simInit, ...
+%          T, winchParameter, params] = initAllSimParams_DE2019(Kite_DOF);
+%
+% **Other Required Files**:
+%   - transformFromWtoO.m
+%   - transformFromOtoW.m
+%   - getPointOnBooth.m
+%
+% **MAT-files**:
+%   - Lib/Common/DE2019_params.mat
+%   - Lib/6DoF/Control_allocation_V60.mat
+%   - Lib/Common/winddata_Lidar_Avg.mat
+%
 %
 % :Revision: 17-February-2025
 % :Author: YuanHao Cui (yuanlidh@mail.dlut.edu.cn)

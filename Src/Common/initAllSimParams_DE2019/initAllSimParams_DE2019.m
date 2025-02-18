@@ -48,17 +48,19 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %
 % .. code-block:: matlab
 %
-%    [act, base_windspeed, constr, ENVMT, Lbooth, loiterStates, DE2019, simInit, T, winchParameter, params] = initAllSimParams_DE2019(Kite_DOF);
+%    [act, base_windspeed, constr, ENVMT, ...
+%          Lbooth, loiterStates, DE2019, simInit, ...
+%          T, winchParameter, params] = initAllSimParams_DE2019(Kite_DOF);
 %
 % **Other Required Files**:
-% - transformFromWtoO.m
-% - transformFromOtoW.m
-% - getPointOnBooth.m
+%   - transformFromWtoO.m
+%   - transformFromOtoW.m
+%   - getPointOnBooth.m
 %
 % **MAT-files**:
-% - Lib/Common/DE2019_params.mat
-% - Lib/6DoF/Control_allocation_V60.mat
-% - Lib/Common/winddata_Lidar_Avg.mat
+%   - Lib/Common/DE2019_params.mat
+%   - Lib/6DoF/Control_allocation_V60.mat
+%   - Lib/Common/winddata_Lidar_Avg.mat
 %
 % **Function Breakdown**:
 % This function is divided into several distinct sections that each serve a specific purpose:
@@ -100,12 +102,12 @@ function [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 %    - Defines valid angular ranges for transitioning between loitering and other operational phases.
 %
 % **Variables and Physical Meaning**:
-% - **act**: Contains actuator control parameters for various flight surfaces (e.g., aileron, rudder).
-% - **ENVMT**: Describes environmental conditions, including gravity, air density, wind speed, and direction.
-% - **constr**: Contains physical constraints on the aircraft's movement, such as lift and speed limits.
-% - **T**: Describes the tether system, including its diameter, stiffness, and force characteristics.
-% - **params**: Defines the control system's parameters, including gains for altitude, speed, and course control.
-% - **simInit**: Initializes simulation parameters, such as time step and logging intervals.
+%   - **act**: Contains actuator control parameters for various flight surfaces (e.g., aileron, rudder).
+%   - **ENVMT**: Describes environmental conditions, including gravity, air density, wind speed, and direction.
+%   - **constr**: Contains physical constraints on the aircraft's movement, such as lift and speed limits.
+%   - **T**: Describes the tether system, including its diameter, stiffness, and force characteristics.
+%   - **params**: Defines the control system's parameters, including gains for altitude, speed, and course control.
+%   - **simInit**: Initializes simulation parameters, such as time step and logging intervals.
 %
 % :Revision: 17-February-2025
 % :Author: YuanHao Cui (yuanlidh@mail.dlut.edu.cn)

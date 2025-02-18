@@ -229,24 +229,41 @@ based on the given wind speed and degrees of freedom (DOF) of the kite.</p>
 <dl class="mat function" id="module-Src.Common.initAllSimParams_DE2019">
 <dt class="sig sig-object mat" id="Src.Common.initAllSimParams_DE2019.initAllSimParams_DE2019">
 <span class="sig-name descname"><span class="pre">initAllSimParams_DE2019</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.initAllSimParams_DE2019.initAllSimParams_DE2019" title="Link to this definition"></a></dt>
-<dd><p>This function initializes the parameters for a complete kite simulation system,
+<dd><p>This function initializes the parameters for a complete kite simulation system, 
 taking into account environmental factors, aircraft constraints, and flight path parameters.</p>
-<p><strong>Arguments</strong>:
-- <strong>Kite_DOF</strong>: Degrees of freedom of the kite (3 or 6), which determines the complexity of the system.</p>
-<p><strong>Returns</strong>:
-- <strong>act</strong>: Actuator parameters, including aileron, elevator, and rudder data.
-- <strong>base_windspeed</strong>: Wind speed at maximum altitude, where the speed stays constant.
-- <strong>constr</strong>: Aircraft maneuver and winch constraints.
-- <strong>ENVMT</strong>: Environmental parameters.
-- <strong>Lbooth</strong>: Flight path parameters.
-- <strong>loiterStates</strong>: Initial loiter parameters (for power cycle initialization).
-- <strong>DE2019</strong>: Aircraft parameters, including characteristics like wing lift.
-- <strong>simInit</strong>: Simulation initialization parameters, including time steps and logging intervals.
-- <strong>T</strong>: Tether dimensions and material properties.
-- <strong>winchParameter</strong>: Winch dynamic parameters, including reel-out speed and friction.
-- <strong>params</strong>: Flight and winch controller parameters.</p>
+<p>The function follows these steps:</p>
+<ol class="arabic simple">
+<li><p>Loads the aircraft parameters from the DE2019 dataset.</p></li>
+<li><p>Sets up environmental constants such as gravity and wind direction.</p></li>
+<li><p>Initializes the simulation with time step, simulation duration, and logging intervals.</p></li>
+<li><p>Defines constraints for the kite’s motion, winch dynamics, and flight path.</p></li>
+<li><p>Configures tether parameters based on material properties and maximum force.</p></li>
+<li><p>Initializes control system parameters for aircraft maneuvering during different phases.</p></li>
+<li><p>Sets loitering state parameters for the power cycle initialization.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Kite_DOF</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) – Degrees of freedom of the kite (3 or 6), which determines the complexity of the system.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>act</strong> (<em>struct</em>): Actuator parameters, including aileron, elevator, and rudder data.</p></li>
+<li><p><strong>base_windspeed</strong> (<em>double</em>): Wind speed at maximum altitude, where the speed stays constant.</p></li>
+<li><p><strong>constr</strong> (<em>struct</em>): Aircraft maneuver and winch constraints.</p></li>
+<li><p><strong>ENVMT</strong> (<em>struct</em>): Environmental parameters, including gravity and air density.</p></li>
+<li><p><strong>Lbooth</strong> (<em>struct</em>): Flight path parameters, including size and shape of the flight path.</p></li>
+<li><p><strong>loiterStates</strong> (<em>struct</em>): Initial loiter parameters for power cycle initialization.</p></li>
+<li><p><strong>DE2019</strong> (<em>struct</em>): Aircraft parameters, including wing lift characteristics.</p></li>
+<li><p><strong>simInit</strong> (<em>struct</em>): Simulation initialization parameters, including time step and logging sample times.</p></li>
+<li><p><strong>T</strong> (<em>struct</em>): Tether dimensions and material properties.</p></li>
+<li><p><strong>winchParameter</strong> (<em>struct</em>): Winch dynamic parameters, including reel-out speed and friction.</p></li>
+<li><p><strong>params</strong> (<em>struct</em>): Flight and winch controller parameters, including control gains and limits.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 <p><strong>Example</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">act</span><span class="p">,</span> <span class="n">base_windspeed</span><span class="p">,</span> <span class="n">constr</span><span class="p">,</span> <span class="n">ENVMT</span><span class="p">,</span> <span class="n">Lbooth</span><span class="p">,</span> <span class="n">loiterStates</span><span class="p">,</span> <span class="n">DE2019</span><span class="p">,</span> <span class="n">simInit</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">winchParameter</span><span class="p">,</span> <span class="n">params</span><span class="p">]</span> <span class="o">=</span> <span class="n">initAllSimParams_DE2019</span><span class="p">();</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="n">base_windspeed</span><span class="p">,</span><span class="w"> </span><span class="n">constr</span><span class="p">,</span><span class="w"> </span><span class="n">ENVMT</span><span class="p">,</span><span class="w"> </span><span class="n">Lbooth</span><span class="p">,</span><span class="w"> </span><span class="n">loiterStates</span><span class="p">,</span><span class="w"> </span><span class="n">DE2019</span><span class="p">,</span><span class="w"> </span><span class="n">simInit</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">winchParameter</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">initAllSimParams_DE2019</span><span class="p">(</span><span class="n">Kite_DOF</span><span class="p">);</span>
 </pre></div>
 </div>
 <p><strong>Other Required Files</strong>:
@@ -276,7 +293,7 @@ This function is divided into several distinct sections that each serve a specif
 - Initializes the tether’s physical properties, including stiffness (elastic modulus) and cross-sectional area.
 - Sets up the initial length and discretization of the tether.</p></li>
 <li><p><strong>Winch Parameters</strong>:
-- Defines the parameters of the winch system, such as initial reel-out speed, radius, inertia, and friction.
+- Defines the parameters of the winch system, such as initial reel-out speed, radius, inertia, and friction. 
 - Sets the initial angular position of the winch drum based on tether length.</p></li>
 <li><p><strong>Flight Path Parameters</strong>:
 - Defines the flight path geometry, including parameters like the size, shape, and elevation of the flight path.
